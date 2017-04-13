@@ -14,17 +14,16 @@ import org.xutils.x;
 
 public class HttpUtil {
 
+    private String result;
+
     public  String getRequest(String url){
         RequestParams params = new RequestParams(url);
 
         x.http().get(params, new Callback.CommonCallback<String>() {
 
-
-
-            String result;
             @Override
             public void onSuccess(String result) {
-                this.result=result;
+                HttpUtil.this.result=result;
                 Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
             }
 
@@ -57,10 +56,47 @@ public class HttpUtil {
             }
         });
 
-        String result="";
+
         return result;
     }
-    public void setResult(String result){
 
+    public String postRequest(RequestParams params,String url){
+
+
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                HttpUtil.this.result=result;
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                if (ex instanceof HttpException) { // 网络错误
+                    HttpException httpEx = (HttpException) ex;
+                    int responseCode = httpEx.getCode();
+                    String responseMsg = httpEx.getMessage();
+                    String errorResult = httpEx.getResult();
+                    // ...
+                } else { // 其他错误
+                    // ...
+                }
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+
+        return result;
     }
+
 }
