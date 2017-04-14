@@ -14,10 +14,11 @@ import org.xutils.x;
 
 public class HttpUtil {
 
-    private String result;
+    public  String result;
 
-    public  String getRequest(String url){
-        RequestParams params = new RequestParams(url);
+
+    public   String getRequest(RequestParams params){
+
 
         x.http().get(params, new Callback.CommonCallback<String>() {
 
@@ -56,11 +57,10 @@ public class HttpUtil {
             }
         });
 
-
         return result;
     }
 
-    public String postRequest(RequestParams params,String url){
+    public String postRequest(RequestParams params){
 
 
         x.http().post(params, new Callback.CommonCallback<String>() {
