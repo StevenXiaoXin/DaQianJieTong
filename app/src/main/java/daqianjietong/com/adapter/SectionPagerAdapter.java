@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import daqianjietong.com.factry.FragmentFactry;
+
 /**
  * Created by Administrator on 2017/4/15 0015.
  */
@@ -15,7 +17,9 @@ public class SectionPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+
+
+        return new FragmentFactry().createFragment(position);
     }
 
     @Override
