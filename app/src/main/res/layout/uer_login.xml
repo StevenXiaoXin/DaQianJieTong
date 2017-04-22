@@ -2,18 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center_horizontal"
+              android:gravity="center_horizontal|"
+              android:orientation="vertical"
+              android:background="@color/background_color"
     >
+
 
     <daqianjietong.com.view.RoundImageView
         android:id="@+id/user_login_image"
         android:layout_width="@dimen/login_image"
         android:layout_height="@dimen/login_image"
-        android:layout_marginBottom="@dimen/login_margin"
-        android:layout_marginTop="@dimen/login_margin"
-        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginTop="@dimen/margin_top"
+        android:src="@mipmap/guide1"
+        android:scaleType="fitCenter"
+        />
+    
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_hight"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginRight="@dimen/margin_right"
+        android:textSize="@dimen/text_size"
+        android:hint="@string/user_name"
+        android:gravity="center"
+        android:background="@color/background_edit"
+        android:cursorVisible="false"
+        />
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_hight"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginRight="@dimen/margin_right"
+        android:textSize="@dimen/text_size"
+        android:hint="@string/user_password"
+        android:gravity="center"
+        android:background="@color/background_edit"
+        android:cursorVisible="false"
+        android:layout_marginTop="@dimen/margin_top_edit"
         />
 
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_hight"/>
 
 
 </LinearLayout>
