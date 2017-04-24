@@ -1,8 +1,10 @@
 package daqianjietong.com.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,9 +20,10 @@ import daqianjietong.com.daqianjietong.R;
 
 /**
  * Created by Administrator on 2017/3/14 0014.
+ * 用户登录
  */
 @ContentView(R.layout.uer_login)
-public class UserLoginActivity extends BaseActivity{
+public class UserLoginActivity extends BaseActivity implements View.OnClickListener {
 
     @ViewInject(R.id.user_login_image)
     private ImageView user_login_image;
@@ -38,13 +41,38 @@ public class UserLoginActivity extends BaseActivity{
     private TextView tv_new_user;
 
     @ViewInject(R.id.tv_forget_psd)
-    private TextView tv_froget_psd;
+    private TextView tv_forget_psd;
+
+
 
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initData();
     }
 
+    private void initData() {
+        tv_new_user.setOnClickListener(this);
+        tv_forget_psd.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_new_user:
+                Intent intent=new Intent(UserLoginActivity.this,RegisterUserActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_forget_psd:
+                Intent intent1=new Intent(UserLoginActivity.this,FrogetPsdActivity.class);
+                startActivity(intent1);
+                break;
+
+        }
+
+
+    }
 }

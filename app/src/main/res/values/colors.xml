@@ -7,5 +7,6 @@
     <color name="background_edit">#ffffff</color>//纯白
     <color name="red_button">#d43b33</color>//按钮红色
     <color name="text_color">#bfbfbf</color>//40%灰
+    <color name="text_color_black">#000000</color>//黑
 
 </resources>

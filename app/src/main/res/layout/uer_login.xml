@@ -14,7 +14,7 @@
         android:layout_height="@dimen/login_image"
         android:layout_marginBottom="@dimen/margin_top_btn"
         android:layout_marginTop="@dimen/margin_top_btn"
-        android:src="@mipmap/guide1"
+        android:src="@mipmap/default_login"
         android:scaleType="fitCenter"
         />
     
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/new_user"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color_black"
             android:layout_marginLeft="@dimen/margin_left"
             android:textSize="@dimen/text_size"
             />
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/froget_psd"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color_black"
             android:layout_marginRight="@dimen/margin_right"
             android:textSize="@dimen/text_size"
             />

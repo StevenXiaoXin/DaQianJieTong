@@ -25,6 +25,13 @@
             </intent-filter>
         </activity>
         <activity android:name="daqianjietong.com.GuideActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name="daqianjietong.com.activity.RegisterUserActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity android:name="daqianjietong.com.activity.FrogetPsdActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
             />
         <!--<activity android:name="daqianjietong.com.activity.UserLoginActivity"/>-->
 

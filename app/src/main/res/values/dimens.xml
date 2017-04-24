@@ -6,14 +6,22 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="margin_top">30dp</dimen>
     <dimen name="margin_bottom">30dp</dimen>
-    <dimen name="margin_left">45dp</dimen>
+    <dimen name="margin_left">40dp</dimen>
     <dimen name="margin_right">45dp</dimen>
     <dimen name="margin_top_edit">20dp</dimen>
     <dimen name="margin_top_btn">50dp</dimen>
     <dimen name="login_image">120dp</dimen>
     <dimen name="edittext_hight">35dp</dimen>
     <dimen name="text_size">13sp</dimen>
+    <dimen name="text_size_small">11sp</dimen>
+    <dimen name="title_size">18sp</dimen>
     <dimen name="small_margin">10dp</dimen>
+    <dimen name="small_padding">75dp</dimen>
+    <dimen name="btn_width">180dp</dimen>
+    <dimen name="title_height">45dp</dimen>
+    <dimen name="icon_height">23dp</dimen>
+
+
 
 
 </resources>

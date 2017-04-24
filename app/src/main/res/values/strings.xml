@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">点点</string>
     <string name="user_name">请输入您的帐号</string>
+    <string name="phone_num">请输入手机号</string>
+    <string name="auth_code">请输入验证码</string>
+    <string name="new_psd">请设置登录密码</string>
+    <string name="make_sure_psd">请再次输入设置的密码</string>
     <string name="user_password">请输入您的密码</string>
     <string name="login">登            录</string>
     <string name="new_user"><u>新用户注册</u></string>
     <string name="froget_psd"><u>忘记密码</u></string>
+    <string name="user_agreement1"><u>我已阅读并接受</u></string>
+    <string name="user_agreement2"><u>《用户服务协议》</u></string>
+    <string name="btn_register">确认注册</string>
+    <string name="btn_repsd">确认修改密码</string>
+    <string name="notice"><u>为了帐号安全，建议设置8-16位数字和字母密码组合</u></string>
 </resources>
