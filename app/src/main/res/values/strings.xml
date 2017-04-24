@@ -2,4 +2,7 @@
     <string name="app_name">点点</string>
     <string name="user_name">请输入您的帐号</string>
     <string name="user_password">请输入您的密码</string>
+    <string name="login">登            录</string>
+    <string name="new_user"><u>新用户注册</u></string>
+    <string name="froget_psd"><u>忘记密码</u></string>
 </resources>

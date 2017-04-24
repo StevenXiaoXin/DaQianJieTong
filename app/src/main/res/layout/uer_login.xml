@@ -12,8 +12,8 @@
         android:id="@+id/user_login_image"
         android:layout_width="@dimen/login_image"
         android:layout_height="@dimen/login_image"
-        android:layout_marginBottom="@dimen/margin_bottom"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginBottom="@dimen/margin_top_btn"
+        android:layout_marginTop="@dimen/margin_top_btn"
         android:src="@mipmap/guide1"
         android:scaleType="fitCenter"
         />
@@ -27,7 +27,7 @@
         android:textSize="@dimen/text_size"
         android:hint="@string/user_name"
         android:gravity="center"
-        android:background="@color/background_edit"
+        android:background="@drawable/edit_background"
         android:cursorVisible="false"
         />
     <EditText
@@ -37,17 +37,54 @@
         android:layout_marginLeft="@dimen/margin_left"
         android:layout_marginRight="@dimen/margin_right"
         android:textSize="@dimen/text_size"
+        android:layout_marginTop="@dimen/margin_top_edit"
         android:hint="@string/user_password"
         android:gravity="center"
-        android:background="@color/background_edit"
+        android:background="@drawable/edit_background"
         android:cursorVisible="false"
-        android:layout_marginTop="@dimen/margin_top_edit"
         />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/edittext_hight"/>
+        android:layout_height="@dimen/edittext_hight"
+        android:text="登                  录"
+        android:textColor="@color/background_edit"
+        android:layout_marginRight="@dimen/margin_right"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:background="@drawable/btn_background"
+        android:layout_marginTop="@dimen/margin_top_btn"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/small_margin"
+        >
+
+        <TextView
+            android:id="@+id/tv_new_user"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/new_user"
+            android:textColor="@color/text_color"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:textSize="@dimen/text_size"
+            />
+        <TextView
+            android:id="@+id/tv_forget_psd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/froget_psd"
+            android:textColor="@color/text_color"
+            android:layout_marginRight="@dimen/margin_right"
+            android:textSize="@dimen/text_size"
+            />
+
+    </LinearLayout>
 
 
 </LinearLayout>
