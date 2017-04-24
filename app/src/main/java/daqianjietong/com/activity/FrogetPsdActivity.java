@@ -1,5 +1,8 @@
 package daqianjietong.com.activity;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -21,6 +24,9 @@ import daqianjietong.com.daqianjietong.R;
  */
 @ContentView(R.layout.activity_froget_psd)
 public class FrogetPsdActivity extends BaseActivity implements View.OnClickListener{
+
+    private Activity act;
+    private Context context;
 
     @ViewInject(R.id.iv_back)
     private ImageView iv_back;
@@ -46,26 +52,25 @@ public class FrogetPsdActivity extends BaseActivity implements View.OnClickListe
     @ViewInject(R.id.et_make_sure_psd)
     private EditText et_make_sure_psd;
 
-
     @ViewInject(R.id.btn_repsd)
     private Button btn_repsd;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        act=this;
+        context=this;
         initData();
     }
-
     private void initData() {
         tv_title.setText("忘记密码");
         iv_back.setOnClickListener(this);
         btn_repsd.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_back:
+               act.finish();
                 break;
             case R.id.btn_repsd:
                 break;

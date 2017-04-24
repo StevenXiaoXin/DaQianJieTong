@@ -1,6 +1,8 @@
 package daqianjietong.com.activity;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,6 +26,9 @@ import daqianjietong.com.daqianjietong.R;
  */
 @ContentView(R.layout.uer_login)
 public class UserLoginActivity extends BaseActivity implements View.OnClickListener {
+
+    private Activity act;
+    private Context context;
 
     @ViewInject(R.id.user_login_image)
     private ImageView user_login_image;
@@ -50,7 +55,8 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        act=this;
+        context=this;
         initData();
     }
 
@@ -63,11 +69,11 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_new_user:
-                Intent intent=new Intent(UserLoginActivity.this,RegisterUserActivity.class);
+                Intent intent=new Intent(act,RegisterUserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_forget_psd:
-                Intent intent1=new Intent(UserLoginActivity.this,FrogetPsdActivity.class);
+                Intent intent1=new Intent(act,FrogetPsdActivity.class);
                 startActivity(intent1);
                 break;
 

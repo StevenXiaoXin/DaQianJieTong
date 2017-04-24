@@ -1,5 +1,7 @@
 package daqianjietong.com.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -21,6 +23,9 @@ import daqianjietong.com.daqianjietong.R;
  */
 @ContentView(R.layout.activity_register_user)
 public class RegisterUserActivity extends BaseActivity implements View.OnClickListener{
+
+    private Activity act;
+    private Context context;
 
     @ViewInject(R.id.iv_back)
     private ImageView iv_back;
@@ -56,6 +61,8 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        act=this;
+        context=this;
         initData();
 
     }
@@ -71,6 +78,7 @@ public class RegisterUserActivity extends BaseActivity implements View.OnClickLi
 
         switch (v.getId()) {
             case R.id.iv_back:
+                act.finish();
                 break;
             case R.id.tv_auth_code:
                 break;
