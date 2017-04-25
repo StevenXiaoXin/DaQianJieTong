@@ -11,13 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import daqianjietong.com.BaseActivity;
 import daqianjietong.com.daqianjietong.R;
-
+import daqianjietong.com.utils.ExitByClick;
+import daqianjietong.com.utils.NetWorkUtil;
 
 
 /**
@@ -48,6 +53,7 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     @ViewInject(R.id.tv_forget_psd)
     private TextView tv_forget_psd;
 
+    private boolean isNetWork=false;
 
 
 
@@ -57,7 +63,14 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         act=this;
         context=this;
-        initData();
+        if (NetWorkUtil.isNetworkConnected(context)) {
+            isNetWork=true;
+            initData();
+        } else {
+            isNetWork=false;
+            Toast.makeText(act, "无可用网络，请检查网络连接", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void initData() {
@@ -81,4 +94,9 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
 
 
     }
+    @Override
+    public void onBackPressed() {
+        ExitByClick.exitBy2Click(act);
+    }
+
 }
