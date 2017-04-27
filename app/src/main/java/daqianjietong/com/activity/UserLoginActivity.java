@@ -16,9 +16,6 @@ import android.widget.Toast;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import daqianjietong.com.BaseActivity;
 import daqianjietong.com.daqianjietong.R;
 import daqianjietong.com.utils.ExitByClick;

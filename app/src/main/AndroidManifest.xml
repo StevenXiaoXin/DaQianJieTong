@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="daqianjietong.com.GuideActivity"
+        <activity android:name="daqianjietong.com.activity.MainActivity"
                   android:theme="@style/AppTheme.NoActionBar"
             >
             <intent-filter>
@@ -25,17 +25,15 @@
             </intent-filter>
         </activity>
         <activity android:name="daqianjietong.com.activity.UserLoginActivity"
-                  android:theme="@style/AppTheme.NoActionBar"
-            />
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.RegisterUserActivity"
-                  android:theme="@style/AppTheme.NoActionBar"
-            />
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.FrogetPsdActivity"
-                  android:theme="@style/AppTheme.NoActionBar"
-            />
-        <activity android:name="daqianjietong.com.activity.MainActivity"
-                  android:theme="@style/AppTheme.NoActionBar"
-            />
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="daqianjietong.com.GuideActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="daqianjietong.com.activity.PersonalActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
