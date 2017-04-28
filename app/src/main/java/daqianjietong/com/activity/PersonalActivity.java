@@ -16,6 +16,7 @@ import daqianjietong.com.daqianjietong.R;
 
 /**
  * Created by Administrator on 2017/4/27 0027.
+ * 个人中心
  */
 @ContentView(R.layout.activity_personal)
 public class PersonalActivity extends BaseActivity implements View.OnClickListener{
@@ -61,10 +62,15 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
                 PersonalActivity.this.finish();
                 break;
             case R.id.ll_user_info:
+                Intent intent1=new Intent(PersonalActivity.this,PersonalInfoActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.ll_my_order:
+                //跳转到我的订单
                 break;
             case R.id.ll_restore_psd:
+                Intent intent3=new Intent(PersonalActivity.this,RestorePsdActivity.class);
+                startActivity(intent3);
                 break;
         }
 

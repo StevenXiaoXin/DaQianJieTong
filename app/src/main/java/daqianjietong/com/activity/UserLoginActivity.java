@@ -73,6 +73,7 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     private void initData() {
         tv_new_user.setOnClickListener(this);
         tv_forget_psd.setOnClickListener(this);
+        btn_login.setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +86,11 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
             case R.id.tv_forget_psd:
                 Intent intent1=new Intent(act,FrogetPsdActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.btn_login:
+                Intent intent2=new Intent(act,MainActivity.class);
+                startActivity(intent2);
+                act.finish();
                 break;
 
         }

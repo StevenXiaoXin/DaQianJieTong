@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="daqianjietong.com.activity.MainActivity"
+        <activity android:name="daqianjietong.com.GuideActivity"
                   android:theme="@style/AppTheme.NoActionBar"
             >
             <intent-filter>
@@ -30,9 +30,13 @@
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.FrogetPsdActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="daqianjietong.com.GuideActivity"
+        <activity android:name="daqianjietong.com.activity.MainActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.PersonalActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="daqianjietong.com.activity.RestorePsdActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="daqianjietong.com.activity.PersonalInfoActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

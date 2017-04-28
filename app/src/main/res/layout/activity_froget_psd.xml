@@ -39,6 +39,7 @@
         android:layout_gravity="center_vertical"
         android:background="@null"
         android:inputType="phone"
+        android:maxLength="11"
         />
 
     <TextView
@@ -99,7 +100,7 @@
         android:background="@mipmap/edit_background"
         android:cursorVisible="false"
         android:paddingLeft="@dimen/small_padding"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:digits="0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -129,7 +130,7 @@
         android:background="@mipmap/edit_background"
         android:cursorVisible="false"
         android:paddingLeft="@dimen/small_padding"
-        android:digits="0123456789qwertzuiopasdfghjklyxcvbnm"
+        android:digits="0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
         />
     <TextView
         android:layout_width="wrap_content"
