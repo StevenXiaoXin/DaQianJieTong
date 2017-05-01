@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="daqianjietong.com.MyApplication"
@@ -31,12 +33,15 @@
         <activity android:name="daqianjietong.com.activity.FrogetPsdActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.MainActivity"
+            android:screenOrientation="portrait"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.PersonalActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.RestorePsdActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="daqianjietong.com.activity.PersonalInfoActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="daqianjietong.com.activity.OrderCarParkActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

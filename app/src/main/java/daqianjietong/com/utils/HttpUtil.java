@@ -2,20 +2,84 @@ package daqianjietong.com.utils;
 
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import org.xutils.common.Callback;
 import org.xutils.ex.HttpException;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+import java.util.Set;
+
+import daqianjietong.com.api.Api;
 
 /**
  * Created by Administrator on 2017/4/13 0013.
  * xUtils的网络请求工具类
  */
 
-public class HttpUtil {
+public class HttpUtil <T>{
+    private Api.API_METHOD method;
+
+    private RequestParams params;
+
+    private URLListenter lisenter;
+    private Class<?> clazz;
+
+    private Type type;
+
+   private  Gson gson = new Gson();
 
     public  String result;
+    Callback.CommonCallback callback  = new Callback.CommonCallback<String>(){
+        @Override
+        public void onSuccess(String result) {
+            if(null == lisenter)
+                return;
+            if(clazz != null){
+                    lisenter.onsucess(gson.fromJson(result,clazz));
+                    return;
+            }else if(type!=null){
+                    lisenter.onsucess(gson.fromJson(result,type));
+                    return;
+            }else{
+                    lisenter.onsucess(result);
+            }
 
+            reset();
+        }
+
+        @Override
+        public void onError(Throwable ex, boolean isOnCallback) {
+            if(null!=lisenter)
+            lisenter.onfaild(ex.toString());
+        }
+
+        @Override
+        public void onCancelled(CancelledException cex) {
+
+        }
+
+        @Override
+        public void onFinished() {
+
+        }
+    };
+
+    /**
+     * 重设工具类
+     */
+    private void reset(){
+        clazz = null;
+        type = null;
+        params.clearParams();
+
+    }
+
+
+
+     @Deprecated
 
     public   String getRequest(RequestParams params){
 
@@ -59,7 +123,7 @@ public class HttpUtil {
 
         return result;
     }
-
+    @Deprecated
     public String postRequest(RequestParams params){
 
 
@@ -97,6 +161,98 @@ public class HttpUtil {
 
 
         return result;
+    }
+
+    /**
+     * 设置访问方式（post/get）
+     * @param method
+     * @return
+     */
+   public HttpUtil setMethod(Api.API_METHOD method){
+       this.method = method;
+       return this;
+   }
+
+    /**
+     * 设置访问参数
+     * @param maps
+     * @return
+     */
+   public HttpUtil setParams(Map<String,String> maps){
+       if(maps == null)
+           return this;
+       Set<Map.Entry<String,String>>  entries = maps.entrySet();
+       for (Map.Entry<String,String> entity:entries) {
+           params.addQueryStringParameter(entity.getKey(),entity.getValue());
+
+       }
+       return this;
+   }
+
+    /**
+     * 设置访问url
+     * @param hostUrl
+     * @return
+     */
+  public HttpUtil setUrl(String hostUrl){
+      if(params!=null){
+          params.clearParams();
+      }else{
+          params = new RequestParams();
+      }
+      params.setUri(hostUrl);
+      return this;
+  }
+
+    /**
+     * 开始调用网络访问
+     */
+  public void start(){
+      if (method.equals(Api.API_METHOD.GET)) {
+          x.http().get(params, callback);
+      } else {
+          x.http().post(params, callback);
+
+      }
+  }
+
+    /**
+     * 设置URL的监听回调
+     * @param lisenter
+     * @return
+     */
+  public HttpUtil seturllisenter(URLListenter<T> lisenter){
+      this.lisenter = lisenter;
+      return this;
+  }
+
+    /**
+     * 设置解析类型（针对于列表数据）
+     * @param type
+     * @return
+     */
+  public HttpUtil setTypetoken(Type type){
+     this.type = type;
+     return this;
+  }
+
+    /**
+     * 设置类实体解析类型
+     * @param clazz
+     * @return
+     */
+    public HttpUtil  setClassTye(Class<?> clazz){
+        this.clazz = clazz;
+        return this;
+    }
+
+    /**
+     * 回调接口
+     * @param <T>
+     */
+    public interface URLListenter<T>{
+         void onsucess(T t);
+        void  onfaild(String error);
     }
 
 }

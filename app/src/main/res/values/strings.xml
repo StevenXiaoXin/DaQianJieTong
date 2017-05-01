@@ -13,5 +13,6 @@
     <string name="user_agreement2"><u>《用户服务协议》</u></string>
     <string name="btn_register">确认注册</string>
     <string name="btn_repsd">确认修改密码</string>
+    <string name="et_query">请输入查询条件</string>
     <string name="notice"><u>为了帐号安全，建议设置6-12位数字和字母密码组合</u></string>
 </resources>
