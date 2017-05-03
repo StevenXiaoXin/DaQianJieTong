@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import daqianjietong.com.BaseActivity;
 import daqianjietong.com.daqianjietong.R;
@@ -51,6 +55,8 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     private TextView tv_forget_psd;
 
     private boolean isNetWork=false;
+    String rest="";
+
 
 
 
@@ -91,12 +97,72 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
                 Intent intent2=new Intent(act,MainActivity.class);
                 startActivity(intent2);
                 act.finish();
+//                testApi();
                 break;
 
         }
 
+    }
+
+
+    private void testApi(){
+
+
+        RequestParams params = new RequestParams("http://2.2.2.1/wx.html?href=6E3D313836313136303735303526753D39383736353433323126743D323031342D31322D31312D30362D34392D3334266C3D3437&id=123456789");
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+//                    Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
+                Log.e("解析列表数据成功---》",result);
+                rest =result;
+                Log.e("ASDFGH---》",rest);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e("解析列表数据失败---》",ex.getMessage());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+                Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+//        return rest;
+        iswifi();
 
     }
+
+    public void iswifi(){
+        if(rest==""||rest==null){
+            Toast.makeText(getApplicationContext(),"请求无网络",Toast.LENGTH_SHORT).show();
+            Log.e("asdasdasdasdasdas---》","dasdasdasdasd"+rest);
+            Intent intent2=new Intent(act,MainActivity.class);
+            startActivity(intent2);
+            act.finish();
+        }else{
+            Toast.makeText(getApplicationContext(),"请求成功",Toast.LENGTH_SHORT).show();
+            Log.e("asdasdasdasdasdas---》","请求成功");
+            Intent intent2=new Intent(act,MainActivity.class);
+            startActivity(intent2);
+            act.finish();
+        }
+    }
+
+
+
+
+
+
+
+
     @Override
     public void onBackPressed() {
         ExitByClick.exitBy2Click(act);

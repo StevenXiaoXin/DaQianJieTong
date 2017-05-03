@@ -1,5 +1,9 @@
 package daqianjietong.com.api;
 
+import android.app.Activity;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -8,6 +12,7 @@ import java.util.Map;
 
 import daqianjietong.com.bean.UserInfoBean;
 import daqianjietong.com.utils.HttpUtil;
+import daqianjietong.com.utils.StrHexStr;
 
 /**
  * Created by liuzhuang on 2017/5/1.
@@ -60,6 +65,32 @@ public class Api  {
       httpUtil.setUrl(HOST).setMethod(API_METHOD.GET).setParams(params).setTypetoken(new TypeToken<UserInfoBean>(){}.getType()).seturllisenter(listenter).start();
   }
 
+  public  void texturl( HttpUtil.URLListenter<String> listenter){
+      HttpUtil httpUtil = new HttpUtil();
+
+      httpUtil.setUrl("http://192.168.0.185/dianapi.php/Parking/payList?token=f60btdiaVuSfyA7gUmVSY6Uc9smB_rq5RL0JEwad")
+              .setMethod(API_METHOD.GET).setTypetoken(new TypeToken<String>(){}.getType()).seturllisenter(listenter).start();
+  }
+
+  /**
+     * 示例  登陆接口调用；
+     * @param username
+     * @param password
+     * @param listenter
+     */
+
+  String encrypt="n=18611607505&u=987654321&t=2014-12-11-06-49-34&l=47";
+  String encrypt1= StrHexStr.str2HexStr(encrypt);
+
+    String text="http://2.2.2.1/wx.html?href="+encrypt1+"&id=123456789";
+  public  void register_wifi(Activity act,HttpUtil.URLListenter<String> listenter){
+//      Map<String,String> params = new HashMap<>();
+      HttpUtil httpUtil = new HttpUtil();
+//      Toast.makeText(act,text,Toast.LENGTH_LONG).show();
+      httpUtil.setUrl("http://2.2.2.1/wx.html?href=6E3D313836313136303735303526753D39383736353433323126743D323031342D31322D31312D30362D34392D3334266C3D3437&id=123456789")
+              .setMethod(API_METHOD.GET).setParams(null).setTypetoken(new TypeToken<String>(){}.getType()).seturllisenter(listenter).start();
+//      httpUtil.setUrl("http://2.2.2.1/wx.html?href="+encrypt1+"&id=123456789").setMethod(API_METHOD.GET).setParams(null).setTypetoken(new TypeToken<String>(){}.getType()).seturllisenter(listenter).start();
+  }
     /**
      * 示例1  测试百度接口调用；（默认返回String类型的数据）
      * @param listenter  回调监听传入需要解析数据类型

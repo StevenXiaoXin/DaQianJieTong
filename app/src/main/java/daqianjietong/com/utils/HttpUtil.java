@@ -37,16 +37,21 @@ public class HttpUtil <T>{
         public void onSuccess(String result) {
             if(null == lisenter)
                 return;
+            try {
             if(clazz != null){
+
                     lisenter.onsucess(gson.fromJson(result,clazz));
-                    return;
+
+                return;
             }else if(type!=null){
                     lisenter.onsucess(gson.fromJson(result,type));
                     return;
             }else{
                     lisenter.onsucess(result);
             }
-
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             reset();
         }
 
@@ -80,7 +85,6 @@ public class HttpUtil <T>{
 
 
      @Deprecated
-
     public   String getRequest(RequestParams params){
 
 
@@ -251,7 +255,7 @@ public class HttpUtil <T>{
      * @param <T>
      */
     public interface URLListenter<T>{
-         void onsucess(T t);
+         void onsucess(T t) throws Exception;
         void  onfaild(String error);
     }
 

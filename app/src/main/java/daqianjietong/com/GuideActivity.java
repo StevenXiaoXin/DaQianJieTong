@@ -98,25 +98,4 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
         int position = (Integer)v.getTag();
         setCurView(position);
     }
-//    /**
-//     * 当当前页面被滑动时调用
-//     */
-//    @Override
-//    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//    }
-//    /**
-//     * 当新的页面被选中时调用
-//     */
-//    @Override
-//    public void onPageSelected(int position) {
-//
-//    }
-//    /**
-//     * 当滑动状态改变时调用
-//     */
-//    @Override
-//    public void onPageScrollStateChanged(int state) {
-//
-//    }
 }
