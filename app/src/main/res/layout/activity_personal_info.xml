@@ -29,9 +29,9 @@
             android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/small_margin"
-            android:src="@mipmap/guide1"
             android:scaleType="centerCrop"
-            />
+        />
+        <!--android:src="@mipmap/guide1"-->
 
         <ImageView
             android:layout_width="@dimen/margin_top_edit"
