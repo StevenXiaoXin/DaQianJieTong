@@ -7,8 +7,8 @@ import daqianjietong.com.daqianjietong.R;
 
 /**
  * Created by Administrator on 2017/4/29 0029.
- * 预约车位页面
+ * 停车券页面
  */
-@ContentView(R.layout.activity_order_park)
-public class OrderCarParkActivity extends BaseActivity {
+@ContentView(R.layout.activity_near_park)
+public class ParkCardActivity extends BaseActivity {
 }

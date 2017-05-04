@@ -27,22 +27,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        //登录
         <activity android:name="daqianjietong.com.activity.UserLoginActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //注册
         <activity android:name="daqianjietong.com.activity.RegisterUserActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //忘记密码
         <activity android:name="daqianjietong.com.activity.FrogetPsdActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //主页
         <activity android:name="daqianjietong.com.activity.MainActivity"
             android:screenOrientation="portrait"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //个人中心
         <activity android:name="daqianjietong.com.activity.PersonalActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //修改密码
         <activity android:name="daqianjietong.com.activity.RestorePsdActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //个人信息
         <activity android:name="daqianjietong.com.activity.PersonalInfoActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+        //预约车位
         <activity android:name="daqianjietong.com.activity.OrderCarParkActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        //租车位
+        <activity android:name="daqianjietong.com.activity.RentCarParkActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        //附近车位
+        <activity android:name="daqianjietong.com.activity.NearCarParkActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        //停车券
+        <activity android:name="daqianjietong.com.activity.ParkCardActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        //我的订单
+        <activity android:name="daqianjietong.com.activity.MyOrderActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
