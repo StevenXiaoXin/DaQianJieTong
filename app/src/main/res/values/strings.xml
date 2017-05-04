@@ -3,7 +3,7 @@
     <string name="user_name">请输入您的帐号</string>
     <string name="phone_num">请输入手机号</string>
     <string name="auth_code">请输入验证码</string>
-    <string name="new_psd">请设置登录密码6-12位</string>
+    <string name="new_psd">请设置登录密码6-20位</string>
     <string name="make_sure_psd">请再次输入设置的密码</string>
     <string name="user_password">请输入您的密码</string>
     <string name="login">登            录</string>
@@ -14,5 +14,5 @@
     <string name="btn_register">确认注册</string>
     <string name="btn_repsd">确认修改密码</string>
     <string name="et_query">请输入查询条件</string>
-    <string name="notice"><u>为了帐号安全，建议设置6-12位数字和字母密码组合</u></string>
+    <string name="notice"><u>为了帐号安全，建议设置6-20位数字和字母密码组合</u></string>
 </resources>
