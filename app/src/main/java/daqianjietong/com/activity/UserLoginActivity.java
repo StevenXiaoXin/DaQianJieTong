@@ -14,14 +14,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+
 import daqianjietong.com.BaseActivity;
+import daqianjietong.com.bean.TxtBean;
+import daqianjietong.com.bean.UserLoginBean;
 import daqianjietong.com.daqianjietong.R;
+import daqianjietong.com.utils.AESUtils;
 import daqianjietong.com.utils.ExitByClick;
 import daqianjietong.com.utils.NetWorkUtil;
 
@@ -55,7 +65,6 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
     private TextView tv_forget_psd;
 
     private boolean isNetWork=false;
-    String rest="";
 
 
 
@@ -94,10 +103,10 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             case R.id.btn_login:
-                Intent intent2=new Intent(act,MainActivity.class);
-                startActivity(intent2);
-                act.finish();
-//                testApi();
+//                Intent intent2=new Intent(act,MainActivity.class);
+//                startActivity(intent2);
+//                act.finish();
+                testApi();
                 break;
 
         }
@@ -106,16 +115,38 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
 
 
     private void testApi(){
+//        {"txt_password":"12345","txt_phone":"18611607505"}
 
+        RequestParams params = new RequestParams("http://test.daqianjietong.com/dianapi.php/Login/login");
+        UserLoginBean packet = new UserLoginBean();
+        packet.setTxt_password("123456");
+        packet.setTxt_phone("18611607505");
+        Gson gson = new Gson();
+        String str=gson.toJson(packet);
+        Log.e("加密前数据", str);
 
-        RequestParams params = new RequestParams("http://2.2.2.1/wx.html?href=6E3D313836313136303735303526753D39383736353433323126743D323031342D31322D31312D30362D34392D3334266C3D3437&id=123456789");
+        try {
+            str= AESUtils.encrypt(str);
+            Log.e("加密数据", str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        params.addBodyParameter("packet",str);
+
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                Gson asd = new Gson();
+                TxtBean aaaa=asd.fromJson(result,TxtBean.class);
+
+
 //                    Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
-                Log.e("解析列表数据成功---》",result);
-                rest =result;
-                Log.e("ASDFGH---》",rest);
+//                Log.e("s数据---》",result);
+                Log.e("data数据---》",aaaa.getData());
+
+                Log.e("解析成功---》",AESUtils.desEncrypt(aaaa.getData()));
+
+
             }
 
             @Override
@@ -135,27 +166,7 @@ public class UserLoginActivity extends BaseActivity implements View.OnClickListe
             }
         });
 
-//        return rest;
-        iswifi();
-
     }
-
-    public void iswifi(){
-        if(rest==""||rest==null){
-            Toast.makeText(getApplicationContext(),"请求无网络",Toast.LENGTH_SHORT).show();
-            Log.e("asdasdasdasdasdas---》","dasdasdasdasd"+rest);
-            Intent intent2=new Intent(act,MainActivity.class);
-            startActivity(intent2);
-            act.finish();
-        }else{
-            Toast.makeText(getApplicationContext(),"请求成功",Toast.LENGTH_SHORT).show();
-            Log.e("asdasdasdasdasdas---》","请求成功");
-            Intent intent2=new Intent(act,MainActivity.class);
-            startActivity(intent2);
-            act.finish();
-        }
-    }
-
 
 
 

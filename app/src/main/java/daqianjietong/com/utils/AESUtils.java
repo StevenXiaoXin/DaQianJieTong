@@ -14,9 +14,8 @@ import sun.misc.BASE64Decoder;
 
 public class AESUtils {
 
-    public static String encrypt() throws Exception {
+    public static String encrypt(String data) throws Exception {
         try {
-            String data = "Test String";
             String key = "6f7032ac17515621";
             String iv = "6f7032ac17515621";
 
@@ -38,8 +37,6 @@ public class AESUtils {
             cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
             byte[] encrypted = cipher.doFinal(plaintext);
 
-//            String a = Base64.encodeToString(encrypted,0);
-//            return a;
             return new sun.misc.BASE64Encoder().encode(encrypted);
 
         } catch (Exception e) {
@@ -51,7 +48,6 @@ public class AESUtils {
     public static String desEncrypt(String data) {
         try
         {
-//            String data = "2fbwW9+8vPId2/foafZq6Q==";
             String key = "6f7032ac17515621";
             String iv = "6f7032ac17515621";
 
@@ -65,7 +61,7 @@ public class AESUtils {
 
             byte[] original = cipher.doFinal(encrypted1);
             String originalString = new String(original);
-            return originalString;
+            return originalString.trim();
         }
         catch (Exception e) {
             e.printStackTrace();
